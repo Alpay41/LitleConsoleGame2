@@ -10,8 +10,11 @@
             int senSutun = 1, toplamSutun = 10, senSatir = 1, toplamSatir = 10, puan= 0;
             int yemSatir = rnd.Next(1, toplamSatir + 1), yemSutun = rnd.Next(1, toplamSutun + 1);
             #endregion
+
+            #region Oyun Döngüsü
             while (true)
             {
+                #region Gelismeler
                 Console.Clear();
                 for (int satir = 1; satir <= toplamSatir; satir++)
                 {
@@ -30,20 +33,23 @@
                     Console.WriteLine(" Yemi \" ♦ \" yemek için 5 e basınız");
 
                 ConsoleKey basilanTus = Console.ReadKey().Key;
+                #endregion
+                #region Oyun Durumları
                 if (senSatir == yemSatir && senSutun == yemSutun && basilanTus == ConsoleKey.NumPad5)
                 {
                     yemSatir = rnd.Next(1, toplamSatir + 1);
                     yemSutun = rnd.Next(1, toplamSutun + 1);
                     puan++;
                 }
-                if ((puan == 2) && (yemSatir > senSatir)) yemSatir--;
-                if ((puan == 2) && (yemSatir < senSatir)) yemSatir++;
+                if ((puan == 10) && (yemSatir > senSatir)) yemSatir--;
+                if ((puan == 10) && (yemSatir < senSatir)) yemSatir++;
 
-                if ((puan == 2) && (yemSutun > senSutun)) yemSutun--;
-                if ((puan == 2) && (yemSutun < senSutun)) yemSutun++;
+                if ((puan == 10) && (yemSutun > senSutun)) yemSutun--;
+                if ((puan == 10) && (yemSutun < senSutun)) yemSutun++;
                 
-                if ((puan == 2) || (yemSatir == senSatir) || (yemSutun > senSutun)) Console.WriteLine("GameOver");
-
+                if ((puan == 10) || (yemSatir == senSatir) || (yemSutun > senSutun)) Console.WriteLine("GameOver");
+                #endregion
+                #region Yönlendirme Kod blogu
                 if (basilanTus == ConsoleKey.NumPad1 && senSatir != toplamSatir && senSutun != 1) { senSatir++; senSutun--; }
                 if (basilanTus == ConsoleKey.NumPad2 || basilanTus == ConsoleKey.DownArrow && senSatir != toplamSatir) senSatir++;
                 if (basilanTus == ConsoleKey.NumPad3 && senSatir != toplamSatir && senSutun != toplamSutun) { senSatir++; senSutun++; }
@@ -53,9 +59,10 @@
                 if (basilanTus == ConsoleKey.NumPad7 && senSatir != 1 && senSutun != 1) { senSatir--; senSutun--; }
                 if (basilanTus == ConsoleKey.NumPad8 || basilanTus == ConsoleKey.UpArrow && senSatir != 1) senSatir--;
                 if (basilanTus == ConsoleKey.NumPad9 && senSatir != 1 && senSutun != toplamSutun) { senSatir--; senSutun++; }
-
+                #endregion
 
             }
+            #endregion
         }
     }
 }
