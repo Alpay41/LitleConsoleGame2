@@ -4,11 +4,12 @@
     {
         static void Main(string[] args)
         {
+            #region Değişkenler
             Random rnd = new Random();
             string sen = " ☻ ", zemin = " * ", yem = " ♦ ";
             int senSutun = 1, toplamSutun = 10, senSatir = 1, toplamSatir = 10, puan= 0;
             int yemSatir = rnd.Next(1, toplamSatir + 1), yemSutun = rnd.Next(1, toplamSutun + 1);
-
+            #endregion
             while (true)
             {
                 Console.Clear();
@@ -27,7 +28,6 @@
                 }
                     Console.WriteLine(" Puan :" + puan);
                     Console.WriteLine(" Yemi \" ♦ \" yemek için 5 e basınız");
-
 
                 ConsoleKey basilanTus = Console.ReadKey().Key;
                 if (senSatir == yemSatir && senSutun == yemSutun && basilanTus == ConsoleKey.NumPad5)
